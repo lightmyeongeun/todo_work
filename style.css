@@ -43,3 +43,7 @@ body{
     justify-content: space-between;
     padding: 1em;
 }
+
+.task_done{
+    text-decoration: line-through;
+}
