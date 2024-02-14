@@ -7,6 +7,9 @@ addButton.addEventListener("click",addTask)
 // + 버튼을 클릭하면 할일이 추가된다.
 let taskList = []
 
+// 유저가 input창에 입력시에 새로운 칸으로 노출시키기
+taskInput.addEventListener("focus",function(){taskInput.value=""})
+
 function addTask(){
 //    let taskContent=taskInput.value
    let task = {
@@ -38,16 +41,16 @@ function render(){
             resultHTML+=`<div class="task">
             <div class="task_done">${taskList[i].taskContent}</div> 
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
+                <button class="check_btn" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-regular fa-square-check fa-2xl"></i></button>
+                <button class="delete_btn" onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-ban fa-2xl"></i></button>
             </div>
         </div>`
         }else{
             resultHTML+=`<div class="task">
             <div>${taskList[i].taskContent}</div> 
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
+                <button class="check_btn" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-regular fa-square-check fa-2xl"></i></button>
+                <button class="delete_btn" onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-ban fa-2xl"></i></button>
             </div>
         </div>`
         }
@@ -62,7 +65,7 @@ function toggleComplete(id){
         if(taskList[i].id == id){
             taskList[i].isComplete= !taskList[i].isComplete;
             // false 값 = false값이 아니다(true)
-            break;
+            break
         }
     }
     render()
@@ -72,9 +75,9 @@ function toggleComplete(id){
 
 function deleteTask(id){
     for(let i=0;i<taskList.length;i++){
-        if(taskList[i].id==id){
-            taskList.splice(1,1)
-            break
+        if(taskList[i].id == id){
+            taskList.splice(i,1)
+            break;
         }
     }
     render()
@@ -83,3 +86,4 @@ function deleteTask(id){
 // 진행중 끝남 탭을 누르면, 언더바가 이동한다.
 //끝남 탭은 끝난 아이템만 / 진행중탭은 진행중인 아이템만 나온다
 // 전체 탭을 누르면 다시 전체 아이템으로 돌아옴
+
