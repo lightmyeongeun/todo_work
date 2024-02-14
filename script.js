@@ -19,11 +19,18 @@ function addTask(){
    render();
 }
 
+//id값은 랜덤으로 생성시켜주는 함수 
 function randomIDGenerate(){
     return Math.random().toString(36).substr(2, 16);
-} //id값은 랜덤으로 생성시켜주는 함수 
+} 
 
 
+// delete버튼을 누르면 할일이 리스트에서 삭제된다.
+//check버튼을 누르면 할일이 끝나면서 밑줄이 그어진다
+// 1. check버튼을 클릭하는 순간  false을 true로 바꾸기
+// 2. true 이면 끝난걸로 간주하고 밀줄 보여주기
+// 3. false이면 안끝난걸로 간주하고 그대로
+// delete버튼을 누르면 할일이 리스트에서 삭제된다.
 function render(){
     let resultHTML=""
     for(let i=0;i<taskList.length;i++){
@@ -49,6 +56,7 @@ function render(){
     document.getElementById("task_board").innerHTML=resultHTML
 }
 
+
 function toggleComplete(id){
     for(let i=0;i<taskList.length;i++){
         if(taskList[i].id == id){
@@ -61,13 +69,7 @@ function toggleComplete(id){
     console.log(taskList)
 }//id값을 불고 체크 누르면 true로 바꾸기
 
-// delete버튼을 누르면 할일이 리스트에서 삭제된다.
-//check버튼을 누르면 할일이 끝나면서 밑줄이 그어진다
-// 1. check버튼을 클릭하는 순간  false을 true로 바꾸기
-// 2. true 이면 끝난걸로 간주하고 밀줄 보여주기
-// 3. false이면 안끝난걸로 간주하고 그대로
 
-// delete버튼을 누르면 할일이 리스트에서 삭제된다.
 function deleteTask(id){
     for(let i=0;i<taskList.length;i++){
         if(taskList[i].id==id){
