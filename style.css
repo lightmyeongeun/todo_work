@@ -36,10 +36,10 @@ body{margin: 0;font-family: 'seolleimcool-SemiBold';color: #000;}
 }
 .task_area{margin-top: 40px;box-shadow: rgba(99, 99, 99, 0.2) 1px 4px 8px 0px;}
 .task_tabs{display: flex;position: relative;}
-.task_tabs div{padding: 1em 1.6em;}
+.task_tabs div{padding: 1em 1.6em;cursor: pointer;}
 
 /*자바스크립트를 위해 사용*/
-#under_line{height: 4px;background-color: pink;position: absolute;width: 80px;left: 0;top: 52px;padding: 0;}
+#under_line{height: 4px;background-color: pink;position: absolute;width: 80px;left: 0;top: 52px;padding: 0;transition: 0.5s;}
 
 .task{display: flex;justify-content: space-between;padding: 1.5em;font-size: 18px;}
 .task button{font-size: 16px;}
